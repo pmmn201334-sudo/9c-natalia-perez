@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misiones y Tareas - Academia Espacial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="flores.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <div class="contenedor">
+        <h1 class="titulo">✅ Misiones y Tareas</h1>
+    </div>
+</header>
+
+<main class="conten-principal conten-centrado">
+
+    <div class="conten-parrafo">
+
+        <h1 class="p-nombre">Lista de misiones</h1>
+
+        <p class="parrafo">
+            Agrega tus tareas, márcalas como cumplidas cuando las termines
+            y elimínalas cuando ya no las necesites.
+        </p>
+
+        <div class="panel">
+            <label for="nueva-tarea">Nueva misión:</label>
+            <input type="text" id="nueva-tarea" placeholder="Ej: Terminar tarea de Matemáticas">
+
+            <div class="botones_1">
+                <button class="boton_1" id="btn-agregar">➕ Agregar misión</button>
+            </div>
+        </div>
+
+        <ul class="lista" id="lista-tareas"></ul>
+
+        <div class="botones_1">
+            <button class="boton_1" onclick="window.location.href='menu.html'">
+                🛸 Volver al menú
+            </button>
+        </div>
+
+    </div>
+
+</main>
+
+<script src="tareas.js"></script>
+</body>
+</html>
