@@ -1,0 +1,403 @@
+/* ===== Paleta oficial de la Academia Espacial (estilo rosa y lila) =====
+   Fondo:  #1c0f35  (lila noche)
+   Texto:  #ffffff   (blanco)
+   Acento: #ff6ec7   (rosa neón)
+   Decoración: estrellas animadas de fondo + flores en las esquinas
+   =================================================== */
+
+:root {
+    --color-fondo: #1c0f35;
+    --color-fondo-suave: #2b1652;
+    --color-texto: #ffffff;
+    --color-acento: #ff6ec7;
+    --color-acento-suave: #c9a7ff;
+    --color-borde: #c9a7ff;
+    --sombra-acento: rgba(255, 110, 199, 0.6);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--color-fondo);
+    background-image: radial-gradient(ellipse at 50% -20%, var(--color-fondo-suave) 0%, transparent 55%);
+    background-attachment: fixed;
+    color: var(--color-texto);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+/* ===== Campo de estrellas de fondo ===== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        radial-gradient(1.5px 1.5px at 20px 30px, #ffffff 50%, transparent 51%),
+        radial-gradient(1px 1px at 60px 90px, #ffd6f2 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 110px 40px, #ffe9f6 50%, transparent 51%),
+        radial-gradient(1px 1px at 150px 120px, #ffffff 50%, transparent 51%),
+        radial-gradient(2px 2px at 40px 160px, #ffd6f2 50%, transparent 51%),
+        radial-gradient(1px 1px at 90px 180px, #e8dcff 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 170px 190px, #ffffff 50%, transparent 51%),
+        radial-gradient(1px 1px at 180px 90px, #ffe0f3 50%, transparent 51%),
+        radial-gradient(1px 1px at 130px 160px, #ffffff 50%, transparent 51%),
+        radial-gradient(2px 2px at 15px 120px, #ffffff 50%, transparent 51%);
+    background-size: 220px 220px;
+    animation: centelleo 4s ease-in-out infinite alternate;
+}
+
+@keyframes centelleo {
+    from { opacity: 0.6; }
+    to   { opacity: 1; }
+}
+
+/* ===== Flores decorativas en las esquinas ===== */
+.flor {
+    position: fixed;
+    z-index: 5;
+    pointer-events: none;
+    font-size: 42px;
+    opacity: 0.85;
+    animation: flotar 5s ease-in-out infinite alternate;
+}
+
+.flor-1 { top: 80px;   left: 14px; }
+.flor-2 { top: 80px;   right: 14px; animation-delay: 0.5s; }
+.flor-3 { bottom: 12px; left: 14px; animation-delay: 1s; }
+.flor-4 { bottom: 12px; right: 14px; animation-delay: 1.5s; }
+
+@keyframes flotar {
+    from { transform: translateY(-5px) rotate(-5deg); }
+    to   { transform: translateY(5px) rotate(5deg); }
+}
+
+/* ===== Estructura general ===== */
+.titulo {
+    color: var(--color-texto);
+    font-size: 34px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid var(--color-borde);
+    padding: 10px;
+}
+
+.conten-principal {
+    display: flex;
+    border: 1px solid var(--color-borde);
+    width: 100%;
+    min-height: calc(100vh - 60px);
+}
+
+.parrafo {
+    color: var(--color-texto);
+    margin: 15px 50px 0 50px;
+    line-height: 1.6;
+}
+
+.conten-imagen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-borde);
+    margin: 10px;
+    width: 300px;
+    min-height: 200px;
+    padding: 15px;
+}
+
+.conten-imagen img {
+    width: 100%;
+    max-width: 240px;
+    height: 240px;
+    object-fit: cover;
+    border: 3px solid var(--color-acento);
+    border-radius: 12px;
+    box-shadow: 0 0 12px var(--sombra-acento), inset 0 0 10px rgba(255, 110, 199, 0.15);
+}
+
+.conten-parrafo {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-borde);
+    margin: 10px;
+    width: 70%;
+}
+
+.p-nombre {
+    color: var(--color-texto);
+    font-size: 36px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.h-titulo {
+    color: var(--color-texto);
+    font-size: 24px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+/* ===== Botones ===== */
+.botones_1 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.boton_1 {
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--color-texto);
+    background: transparent;
+    border: 2px solid var(--color-acento);
+    border-radius: 6px;
+    text-decoration: none;
+    box-shadow: 0 0 8px var(--sombra-acento), inset 0 0 10px rgba(255, 110, 199, 0.15);
+    margin: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.boton_1:hover {
+    background: var(--color-acento);
+    color: #2b1652;
+}
+
+.boton_2 {
+    display: inline-block;
+    padding: 8px 16px;
+    color: var(--color-texto);
+    background: transparent;
+    border: 1px solid var(--color-texto);
+    border-radius: 6px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* ===== Horario ===== */
+.horario {
+    color: var(--color-texto);
+    text-align: center;
+    border: 1px solid var(--color-borde);
+    margin: 20px 10px;
+    padding: 10px;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+    border: 1px solid var(--color-borde);
+    padding: 8px;
+    text-align: center;
+}
+
+.tabla th {
+    background-color: rgba(201, 167, 255, 0.15);
+}
+
+/* ===== Ambiente alterno (botón "Cambiar ambiente") ===== */
+.modo-hacker {
+    background-color: #2a1042;
+}
+
+.modo-hacker .boton_1 {
+    border-color: #c9a7ff;
+    box-shadow: 0 0 8px rgba(201, 167, 255, 0.6), inset 0 0 10px rgba(201, 167, 255, 0.15);
+}
+
+.modo-hacker .boton_1:hover {
+    background: #c9a7ff;
+    color: #1c0f35;
+}
+
+.modo-hacker .tabla th {
+    background-color: #c9a7ff !important;
+    color: #1c0f35 !important;
+}
+
+.modo-hacker .tabla td {
+    background-color: #ff9ed0 !important;
+    color: #1c0f35 !important;
+}
+
+/* ===== Estructura de páginas internas ===== */
+.conten-centrado {
+    justify-content: center;
+}
+
+.panel {
+    width: 100%;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    padding: 16px 20px;
+    margin-top: 15px;
+}
+
+/* ===== Formularios y campos de texto ===== */
+label {
+    display: block;
+    margin: 12px 0 4px 0;
+    color: var(--color-texto);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="number"],
+textarea {
+    width: 100%;
+    padding: 9px;
+    background: transparent;
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-acento);
+    box-shadow: 0 0 6px var(--sombra-acento);
+}
+
+/* ===== Menú central ===== */
+.menu-botones {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    width: 100%;
+    padding: 20px;
+}
+
+.menu-botones .boton_1 {
+    font-size: 18px;
+    padding: 18px 12px;
+    margin: 0;
+}
+
+/* ===== Diario ===== */
+.entrada {
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin: 12px 0;
+    text-align: left;
+}
+
+.entrada h3 {
+    color: var(--color-acento);
+    font-size: 20px;
+}
+
+.entrada .fecha {
+    font-size: 13px;
+    color: #d9c4f0;
+    margin: 4px 0;
+}
+
+.entrada p {
+    margin-top: 6px;
+    line-height: 1.5;
+}
+
+/* ===== Tareas y listas ===== */
+.lista {
+    list-style: none;
+    text-align: left;
+    padding: 0;
+    width: 100%;
+}
+
+.lista li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    padding: 10px 14px;
+    margin: 8px 0;
+}
+
+.lista li .tarea-texto {
+    flex: 1;
+    text-align: left;
+}
+
+.lista li.hecha .tarea-texto {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.lista input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-acento);
+}
+
+/* ===== Juego ===== */
+.juego-tablero {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    width: 100%;
+    max-width: 420px;
+    margin: 20px auto;
+}
+
+.carta {
+    aspect-ratio: 1;
+    border: 2px solid var(--color-acento);
+    border-radius: 8px;
+    background: transparent;
+    color: var(--color-texto);
+    font-size: 34px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 8px var(--sombra-acento);
+}
+
+.carta.volteada {
+    background: var(--color-acento);
+    color: #1c0f35;
+}
+
+.carta.encontrada {
+    background: rgba(255, 110, 199, 0.15);
+    border-color: var(--color-acento-suave);
+    opacity: 0.7;
+    cursor: default;
+}
+
+.mensaje {
+    color: var(--color-acento);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 15px;
+    min-height: 28px;
+}
