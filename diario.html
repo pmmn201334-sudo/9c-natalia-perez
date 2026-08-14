@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario Personal - Academia Espacial</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="flores.js" defer></script>
+</head>
+
+<body>
+
+<header>
+    <div class="contenedor">
+        <h1 class="titulo">📖 Diario Personal</h1>
+    </div>
+</header>
+
+<main class="conten-principal conten-centrado">
+
+    <div class="conten-parrafo">
+
+        <h1 class="p-nombre">Registro de aventuras</h1>
+
+        <p class="parrafo">
+            Escribe una entrada con su título y fecha. Se guarda en tu nave
+            y puedes borrarla cuando quieras.
+        </p>
+
+        <div class="panel">
+
+            <form id="form-diario">
+
+                <label for="titulo">Título de la entrada:</label>
+                <input type="text" id="titulo" placeholder="Ej: Mi primera misión" required>
+
+                <label for="fecha">Fecha:</label>
+                <input type="date" id="fecha" required>
+
+                <label for="texto">Historia:</label>
+                <textarea id="texto" rows="4" placeholder="Escribe tu aventura..." required></textarea>
+
+                <div class="botones_1">
+                    <button class="boton_1" type="submit">💾 Guardar entrada</button>
+                </div>
+
+            </form>
+
+        </div>
+
+        <h2 class="h-titulo">Mis aventuras</h2>
+
+        <div id="lista-diario"></div>
+
+        <div class="botones_1">
+            <button class="boton_1" onclick="window.location.href='menu.html'">
+                🛸 Volver al menú
+            </button>
+        </div>
+
+    </div>
+
+</main>
+
+<script src="diario.js"></script>
+</body>
+</html>
